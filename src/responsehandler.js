@@ -21,7 +21,7 @@ export const handleResponse = (responseData, username) => {
       submissionVector[365 - daysAgo - 1] = count;
     }
   });
-  console.log(submissionVector)
+  // console.log(submissionVector)
 
   const submissionCalendar = Object.entries(responseData.submissionCalendar).map(([timestamp, count]) => ({
     date: new Date(parseInt(timestamp) * 1000),
