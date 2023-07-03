@@ -11,3 +11,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f2f2f2;
+}
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4CAF50;
+}
+.container {
+  display: flex;
+}
+
+.left {
+  flex: 1;
+  /* background-color: lightblue; */
+}
+
+.right {
+  flex: 1;
+  /* background-color: lightgreen; */
+}
+
+.separator {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 2px;
+  background-color: black;
+}
+
+.color-scale-1 {
+  fill: #b3fbb3;
+}
+
+.color-scale-2 {
+  fill: #98f998;
+}
+
+.color-scale-3 {
+  fill: #73eb73;
+}
+
+.color-scale-4 {
+  fill: #42e442;
+}
+
+.color-scale-5 {
+  fill: #27e827;
+}
+
+.color-scale-6 {
+  fill: #02d102;
+}
+
+.color-scale-7 {
+  fill: #00b800;
+}
+
+
+
+
+
+
+

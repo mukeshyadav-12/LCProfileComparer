@@ -58,8 +58,8 @@ function App() {
       // Inside the fetchData function
      const response1Data = response1.data;
      const response2Data = response2.data;
-     const processedResponse1 = handleResponse(response1Data);
-     const processedResponse2 = handleResponse(response2Data);
+     const processedResponse1 = handleResponse(response1Data,user1);
+     const processedResponse2 = handleResponse(response2Data,user2);
      setResponse1Result(processedResponse1);
      setResponse2Result(processedResponse2);
 
@@ -80,8 +80,11 @@ function App() {
       {user1notfound && <span  className='userNotFound'> <span>{user1}</span>    is not present</span> }
       <br></br>
       {user2notfound && <span className='userNotFound'><span>{user2}</span>    is not present</span> }
-      <div>{response1Result}</div>
-      <div>{response2Result}</div>
+      <div className="container">
+      <div  className='left'  >{response1Result}</div>
+      <div className="separator"></div>
+      <div  className='right'>{response2Result}</div>
+      </div>
 
     </>
   );
