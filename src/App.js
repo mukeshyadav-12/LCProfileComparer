@@ -1,7 +1,10 @@
 import './App.css';
 import './input.css'
 import {handleResponse} from './responsehandler'
+import { getAnalytics } from './analytics';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React, { useState } from 'react';
 
 function App() {
@@ -11,6 +14,8 @@ function App() {
   const [user2notfound, setUser2NotFound] = useState(false);
   const [response1Result, setResponse1Result] = useState(null);
   const [response2Result, setResponse2Result] = useState(null);
+  const [analytics,setAnalytics]=useState(null)
+  
 
   
   
@@ -60,8 +65,15 @@ function App() {
      const response2Data = response2.data;
      const processedResponse1 = handleResponse(response1Data,user1);
      const processedResponse2 = handleResponse(response2Data,user2);
-     setResponse1Result(processedResponse1);
-     setResponse2Result(processedResponse2);
+     setResponse1Result(processedResponse1.responseComponent);
+     setResponse2Result(processedResponse2.responseComponent);
+     const submissionVector1 = processedResponse1.submissionVector
+     const submissionVector2 = processedResponse2.submissionVector
+
+     console.log(submissionVector1)
+     console.warn(submissionVector2)
+    const analytics=  getAnalytics(submissionVector1,submissionVector2);
+    setAnalytics(analytics)
 
 
     } catch (error) {
@@ -71,7 +83,7 @@ function App() {
 
   return (
     <>
-      <h1>uahfvs</h1>
+      <h1>Leetcode Profile Comparer</h1>
       <input id="user1" placeholder="Enter first username" value={user1} onChange={handleUser1Change} />
       <input id="user2" placeholder="Enter second username" value={user2} onChange={handleUser2Change} />
       <button onClick={fetchData}>Submit</button>
@@ -85,6 +97,8 @@ function App() {
       <div className="separator"></div>
       <div  className='right'>{response2Result}</div>
       </div>
+
+      {analytics}
 
     </>
   );

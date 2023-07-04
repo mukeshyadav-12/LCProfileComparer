@@ -21,14 +21,15 @@ export const handleResponse = (responseData, username) => {
       submissionVector[365 - daysAgo - 1] = count;
     }
   });
-  // console.log(submissionVector)
+  //  console.log(submissionVector)
 
   const submissionCalendar = Object.entries(responseData.submissionCalendar).map(([timestamp, count]) => ({
     date: new Date(parseInt(timestamp) * 1000),
     count: count,
   }));
 
-  return (
+  return {
+    responseComponent : (
     <div>
       <div className="username">{username}</div>
       <p>Easy: <span id="easy-solved">{easySolved} / {totalEasyProblems}</span></p>
@@ -60,12 +61,13 @@ export const handleResponse = (responseData, username) => {
           }}
           titleForValue={(value) => {
   return value ? `${value.count} submissions` : '0 submissions';
-}}
+}} 
 
           
           
         />
       </div>
-    </div>
-  );
+    </div> ),
+    submissionVector : submissionVector,
+};
 };

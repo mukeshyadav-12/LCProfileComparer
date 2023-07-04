@@ -70,6 +70,18 @@ code {
 }
 
 
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+
+.progress-bar {
+  height: 20px;
+}
+
 
 
 
