@@ -13,6 +13,8 @@ export const handleResponse = (responseData, username) => {
   const hardProgress = (responseData.hardSolved / totalHardProblems) * 100;
   const submissionVector = Array(365).fill(0); // Initialize an array of size 365 with 0 values
 
+  
+
   Object.entries(responseData.submissionCalendar).forEach(([timestamp, count]) => {
     const date = new Date(parseInt(timestamp) * 1000);
     const daysAgo = Math.floor((Date.now() - date) / (24 * 60 * 60 * 1000));
@@ -27,6 +29,7 @@ export const handleResponse = (responseData, username) => {
     date: new Date(parseInt(timestamp) * 1000),
     count: count,
   }));
+  
 
   return {
     responseComponent : (

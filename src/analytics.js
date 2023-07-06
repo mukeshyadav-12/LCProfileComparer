@@ -1,4 +1,5 @@
 import { getProgressBar } from "./progressBar";
+import PrefixSumGraph from "./graphAnalytics";
 
 
 
@@ -6,33 +7,31 @@ import { getProgressBar } from "./progressBar";
 
 
 export const getAnalytics = (v1, v2) => {
+  // Your implementation of the getAnalytics function
 
-  //  const[consistencyBar,setConsistencyBar]=useState(null)
+  const consistencyScore1 = findConsistencyScore(v1);
+  const consistencyScore2 = findConsistencyScore(v2);
 
-    const consistencyScore1=findConsistencyScore(v1);
-    const consistencyScore2=findConsistencyScore(v2);
-    
-    var consistencyPercentage1= consistencyScore1.consistencyPercentage
-    var consistencyPercentage2=consistencyScore2.consistencyPercentage
-    console.log(consistencyScore1)
-    console.log(consistencyScore2)
-    
-    const consistencyBar= getProgressBar(consistencyPercentage1,consistencyPercentage2)
-   
+  const consistencyPercentage1 = consistencyScore1.consistencyPercentage;
+  const consistencyPercentage2 = consistencyScore2.consistencyPercentage;
 
-    return (
+  const consistencyBar = getProgressBar(consistencyPercentage1, consistencyPercentage2);
+
+  return (
+    <div>
       <div>
-        <h3 className="text-center" >Consistency </h3>
-      {consistencyBar}
+        <h3 className="text-center">Consistency</h3>
+        {consistencyBar}
       </div>
-    );
-  };
-  
-      
-    
+      <h1>Prefix Sum Graph</h1><br></br>
 
+      <div className="container">
+        <PrefixSumGraph array1={v1} array2={v2} />
+      </div>
+    </div>
+  );
+};
 
-    
 
   
 
