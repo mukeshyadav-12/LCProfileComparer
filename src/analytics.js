@@ -16,6 +16,10 @@ export const getAnalytics = (v1, v2) => {
   const consistencyPercentage2 = consistencyScore2.consistencyPercentage;
 
   const consistencyBar = getProgressBar(consistencyPercentage1, consistencyPercentage2);
+  const monthlySubmissions1 = generateMonthlyData(v1)
+  const monthlySubmissions2=generateMonthlyData(v2);
+  console.log(monthlySubmissions1)
+  console.log(monthlySubmissions2)
 
   return (
     <div>
@@ -23,7 +27,7 @@ export const getAnalytics = (v1, v2) => {
         <h3 className="text-center">Consistency</h3>
         {consistencyBar}
       </div>
-      <h1>Prefix Sum Graph</h1><br></br>
+      <h1 className="text-center" >Submissions Graph</h1><br></br>
 
       <div className="container">
         <PrefixSumGraph array1={v1} array2={v2} />
@@ -31,6 +35,30 @@ export const getAnalytics = (v1, v2) => {
     </div>
   );
 };
+
+function generateMonthlyData(submissions) {
+  const monthlyData = new Map();
+
+  const today = new Date();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+ 
+
+  for (let i = submissions.length - 1; i >= 0; i--) {
+    const submissionDate = new Date(today.getFullYear(), currentMonth, today.getDate() - (submissions.length - 1 - i));
+    const submissionMonth = submissionDate.toLocaleString('default', { month: 'short' });
+    const submissionYear = submissionDate.getFullYear();
+
+    if (submissionYear === currentYear || submissionMonth !== today.toLocaleString('default', { month: 'short' })) {
+      // Exclude submissions from the same month of the previous year
+      const currentTotal = monthlyData.get(submissionMonth) || 0;
+      monthlyData.set(submissionMonth, currentTotal + submissions[i]);
+    }
+  }
+
+  return monthlyData;
+}
+
 
 
   
@@ -45,7 +73,6 @@ const findConsistencyScore = (v) =>{
         if(v[idx]===0) idx++;
         else break;
     }
-    console.log(idx)
 
     var countZeroSubmissions=0;
     for(let i=idx;i<siz;i++){

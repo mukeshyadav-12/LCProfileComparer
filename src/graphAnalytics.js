@@ -70,14 +70,16 @@ class PrefixSumGraph extends React.Component {
             },
           },
           y: {
-            display: true,
+            display: false,
             title: {
               display: false,
               text: 'Prefix Sum',
             },
           },
         },
+    
       },
+   
       
     });
   }
@@ -98,16 +100,23 @@ class PrefixSumGraph extends React.Component {
     const maxLength = Math.max(length1, length2);
     const labels = [];
   
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentDay = currentDate.getDate();
+  
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   
     for (let i = 0; i < maxLength; i += 5) {
-      const monthIndex = (i / 30) % 12; // Assuming 30 days per month
-      const monthLabel = months[Math.floor(monthIndex)];
+      const daysFromCurrent = 365 - i;
+      const date = new Date(currentDate.getFullYear(), currentMonth, currentDay - daysFromCurrent);
+      const monthIndex = date.getMonth();
+      const monthLabel = months[monthIndex];
       labels.push(monthLabel);
     }
   
     return labels;
   }
+  
 
   extractData(prefixSum, interval) {
     const data = [];

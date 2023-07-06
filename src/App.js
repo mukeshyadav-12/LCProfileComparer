@@ -42,7 +42,6 @@ function App() {
       
       if ('errors' in response1.data) {
         // 'errors' field exists in response1.data
-        console.log(response1.data.errors);
         setUser1NotFound(true)
         return;
       } 
@@ -54,12 +53,10 @@ function App() {
       if ('errors' in response2.data) {
         // 'errors' field exists in response1.data
         // console.log("no user is present with this username ")
-        console.log(response2.data.errors);
         setUser2NotFound(true)
         return;
       } 
   
-      console.log(response2.data)
 
       // Inside the fetchData function
      const response1Data = response1.data;
@@ -71,8 +68,7 @@ function App() {
      const submissionVector1 = processedResponse1.submissionVector
      const submissionVector2 = processedResponse2.submissionVector
 
-     console.log(submissionVector1)
-     console.warn(submissionVector2)
+  
     const analytics=  getAnalytics(submissionVector1,submissionVector2);
     setAnalytics(analytics)
 

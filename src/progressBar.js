@@ -22,7 +22,7 @@ export const getProgressBar = (x, y) => {
         right: '50%',
         height: '100%',
         width: `${x / 2}%`,
-        backgroundColor: 'blue',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
       };
     
       const rightProgressBarStyles = {
@@ -31,7 +31,7 @@ export const getProgressBar = (x, y) => {
         left:'50%',
         height: '100%',
         width: `${y / 2}%`,
-        backgroundColor: 'red',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
       };
     
       return (
