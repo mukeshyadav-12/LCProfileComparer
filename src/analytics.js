@@ -1,12 +1,11 @@
 import { getProgressBar } from "./progressBar";
 import PrefixSumGraph from "./graphAnalytics";
+import BarGraph from "./barchart";
 
 
 
 
-
-
-export const getAnalytics = (v1, v2) => {
+export const getAnalytics = (v1, v2,user1,user2) => {
   // Your implementation of the getAnalytics function
 
   const consistencyScore1 = findConsistencyScore(v1);
@@ -30,7 +29,13 @@ export const getAnalytics = (v1, v2) => {
       <h1 className="text-center" >Submissions Graph</h1><br></br>
 
       <div className="container">
-        <PrefixSumGraph array1={v1} array2={v2} />
+        <PrefixSumGraph array1={v1} array2={v2} user1={user1} user2={user2} />
+        
+      </div>
+      <h1 className="text-center">Comparison Bar Graph</h1>
+
+      <div className="container">
+        <BarGraph map1={monthlySubmissions1} map2={monthlySubmissions2} user1={user1} user2={user2} />
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ class PrefixSumGraph extends React.Component {
   }
 
   generateChart() {
-    const { array1, array2 } = this.props;
+    const { array1, array2, user1,user2 } = this.props;
 
     if (array1.length === 0 && array2.length === 0) return;
 
@@ -41,7 +41,7 @@ class PrefixSumGraph extends React.Component {
         labels,
         datasets: [
           {
-            label: 'Array 1',
+            label: user1,
             data: data1,
             borderColor: 'rgba(75, 192, 192, 1)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -49,7 +49,7 @@ class PrefixSumGraph extends React.Component {
             pointHoverRadius:0,
           },
           {
-            label: 'Array 2',
+            label: user2,
             data: data2,
             borderColor: 'rgba(255, 99, 132, 1)',
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
