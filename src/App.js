@@ -42,6 +42,7 @@ function App() {
       const response1 = await axios.get(`https://faisal-leetcode-api.cyclic.app/${user1}`);
       if ('errors' in response1.data) {
         setUser1NotFound(true);
+        console.log(user1)
       }
 
       const response2 = await axios.get(`https://faisal-leetcode-api.cyclic.app/${user2}`);
