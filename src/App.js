@@ -50,6 +50,9 @@ function App() {
         setUser2NotFound(true);
       }
 
+      console.log(response1)
+      console.log(response2)
+
       const processedResponse1 = handleResponse(response1.data, user1);
       const processedResponse2 = handleResponse(response2.data, user2);
       setResponse1Result(processedResponse1.responseComponent);

@@ -1,11 +1,12 @@
 import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
+import ProblemCircle from './circularprogressbar';
 import 'react-calendar-heatmap/dist/styles.css';
 
 export const handleResponse = (responseData, username) => {
   const totalEasyProblems = responseData.totalEasy;
   const easySolved = responseData.easySolved;
-  const easyProgress = (easySolved / totalEasyProblems) * 100;
+  // const easyProgress = (easySolved / totalEasyProblems) * 100;
   const totalMediumProblems= responseData.totalMedium
   const totalHardProblems=responseData.totalHard
 
@@ -36,9 +37,8 @@ export const handleResponse = (responseData, username) => {
     <div>
       <div className="username">{username}</div>
       <p>Easy: <span id="easy-solved">{easySolved} / {totalEasyProblems}</span></p>
-      <div className="progress-bar">
-        <div className="progress-bar-fill" style={{ width: `${easyProgress}%` }}></div>
-      </div>
+      <ProblemCircle problemsSolved={easySolved} totalProblems={totalEasyProblems} />
+
       <p>Medium: <span id="medium-solved">{responseData.mediumSolved} / {totalMediumProblems} </span></p>
       <div className="progress-bar">
         <div className="progress-bar-fill" style={{ width: `${mediumProgress}%` }}></div>

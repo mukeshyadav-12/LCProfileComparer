@@ -31,8 +31,7 @@ class BarGraph extends React.Component {
     const labels = Array.from(map1.keys());
     const data1 = Array.from(map1.values());
     const data2 = Array.from(map2.values());
-    console.log("data1 is ",data1)
-    console.log("labels is ",labels)
+   
 
     if (labels.length === 0) return;
 
