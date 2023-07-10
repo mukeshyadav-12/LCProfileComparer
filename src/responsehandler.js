@@ -6,7 +6,7 @@ import 'react-calendar-heatmap/dist/styles.css';
 export const handleResponse = (responseData, username) => {
   const totalEasyProblems = responseData.totalEasy;
   const easySolved = responseData.easySolved;
-  // const easyProgress = (easySolved / totalEasyProblems) * 100;
+  const easyProgress = (easySolved / totalEasyProblems) * 100;
   const totalMediumProblems= responseData.totalMedium
   const totalHardProblems=responseData.totalHard
 
