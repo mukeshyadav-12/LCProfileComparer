@@ -6,12 +6,13 @@ import 'react-calendar-heatmap/dist/styles.css';
 export const handleResponse = (responseData, username) => {
   const totalEasyProblems = responseData.totalEasy;
   const easySolved = responseData.easySolved;
-  const easyProgress = (easySolved / totalEasyProblems) * 100;
+  // const easyProgress = (easySolved / totalEasyProblems) * 100;
   const totalMediumProblems= responseData.totalMedium
   const totalHardProblems=responseData.totalHard
-
-  const mediumProgress = (responseData.mediumSolved / totalMediumProblems) * 100;
-  const hardProgress = (responseData.hardSolved / totalHardProblems) * 100;
+  const mediumSolved = responseData.mediumSolved
+  // const mediumProgress = (responseData.mediumSolved / totalMediumProblems) * 100;
+ const hardSolved = responseData.hardSolved
+ // const hardProgress = (responseData.hardSolved / totalHardProblems) * 100;
   const submissionVector = Array(365).fill(0); // Initialize an array of size 365 with 0 values
 
   
@@ -30,25 +31,29 @@ export const handleResponse = (responseData, username) => {
     date: new Date(parseInt(timestamp) * 1000),
     count: count,
   }));
+
+ 
   
 
   return {
     responseComponent : (
-    <div>
+    <div className='text-center'>
       <div className="username">{username}</div>
+      <div>
       <p>Easy: <span id="easy-solved">{easySolved} / {totalEasyProblems}</span></p>
-      <ProblemCircle problemsSolved={easySolved} totalProblems={totalEasyProblems} />
+      {/* <img onMouseEnter={toggleSuccessRate}
+      src={`https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png`}/> */}
+     
+      <ProblemCircle  problemsSolved={easySolved} totalProblems={totalEasyProblems}  />
 
       <p>Medium: <span id="medium-solved">{responseData.mediumSolved} / {totalMediumProblems} </span></p>
-      <div className="progress-bar">
-        <div className="progress-bar-fill" style={{ width: `${mediumProgress}%` }}></div>
-      </div>
+      <ProblemCircle problemsSolved={mediumSolved} totalProblems={totalEasyProblems} />
+
       <p>Hard: <span id="hard-solved">{responseData.hardSolved}  / {totalHardProblems}</span></p>
-      <div className="progress-bar">
-        <div className="progress-bar-fill" style={{ width: `${hardProgress}%` }}></div>
+      <ProblemCircle problemsSolved={hardSolved} totalProblems={totalHardProblems} />
       </div>
 
-      <h2>Submission Calendar</h2>
+      <h2 > Submission Calendar</h2>
       <div className="calendar">
         <CalendarHeatmap
           startDate={new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)} // Set the start date to one year ago

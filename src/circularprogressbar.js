@@ -8,32 +8,33 @@ const ProblemCircle = ({ problemsSolved, totalProblems }) => {
   const percentage = Math.round((problemsSolved / totalProblems) * 100);
 
   const toggleSuccessRate = () => {
-    console.log("hovers over toggel ")
     setShowSuccessRate(!showSuccessRate);
   };
 
   const renderCenterText = () => {
     if (showSuccessRate) {
-      return `${successRate}%`;
+      return  `${successRate}%`;
     } else {
       return `${problemsSolved} / ${totalProblems}`;
     }
   };
+  
 
   return (
-    <div style={{ width: '200px' }}>
+    <div style={{ width: '200px' }}
+    onMouseEnter={toggleSuccessRate}
+        onMouseLeave={toggleSuccessRate}>
       <CircularProgressbar
         value={percentage}
         text={renderCenterText()}
         strokeWidth={10}
         styles={buildStyles({
-          textSize: '20px',
+          textSize: '15px',
           pathColor: '#28a745',
           trailColor: '#d3d3d3',
           textColor: '#28a745',
         })}
-        onMouseEnter={toggleSuccessRate}
-        onMouseLeave={toggleSuccessRate}
+        
       />
     </div>
   );

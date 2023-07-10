@@ -28,9 +28,10 @@ class BarGraph extends React.Component {
   generateChart() {
     const { map1, map2,user1,user2 } = this.props;
 
-    const labels = Array.from(map1.keys());
-    const data1 = Array.from(map1.values());
-    const data2 = Array.from(map2.values());
+    const labels = Array.from(map1.keys()).reverse();
+    const data1 = Array.from(map1.values()).reverse();
+    const data2 = Array.from(map2.values()).reverse();
+    
    
 
     if (labels.length === 0) return;
