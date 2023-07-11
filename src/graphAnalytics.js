@@ -33,6 +33,7 @@ class PrefixSumGraph extends React.Component {
     if (this.chart) {
       this.chart.destroy();
     }
+    console.log("hi")
 
     const ctx = this.chartRef.current.getContext('2d');
     this.chart = new Chart(ctx, {
