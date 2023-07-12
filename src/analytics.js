@@ -4,7 +4,6 @@ import BarGraph from "./barchart";
 
 
 
-
 export const getAnalytics = (v1, v2,user1,user2) => {
   // Your implementation of the getAnalytics function
 
@@ -37,6 +36,7 @@ export const getAnalytics = (v1, v2,user1,user2) => {
       <div className="container">
         <BarGraph map1={monthlySubmissions1} map2={monthlySubmissions2} user1={user1} user2={user2} />
       </div>
+   
     </div>
   );
 };

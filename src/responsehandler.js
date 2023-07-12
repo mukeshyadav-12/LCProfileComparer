@@ -14,8 +14,15 @@ export const handleResponse = (responseData, username) => {
  const hardSolved = responseData.hardSolved
  // const hardProgress = (responseData.hardSolved / totalHardProblems) * 100;
   const submissionVector = Array(365).fill(0); // Initialize an array of size 365 with 0 values
+  const totalsolved = responseData.totalSolved
+  const totalQuestions= responseData.totalQuestions
 
-  
+  const successRates = {};
+
+  responseData.totalSubmissions.forEach(submission => {
+  const successRate = (submission.count / submission.submissions) * 100;
+  successRates[submission.difficulty] = successRate.toFixed(1);
+});
 
   Object.entries(responseData.submissionCalendar).forEach(([timestamp, count]) => {
     const date = new Date(parseInt(timestamp) * 1000);
@@ -32,7 +39,7 @@ export const handleResponse = (responseData, username) => {
     count: count,
   }));
 
- 
+  
   
 
   return {
@@ -44,14 +51,18 @@ export const handleResponse = (responseData, username) => {
       {/* <img onMouseEnter={toggleSuccessRate}
       src={`https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png`}/> */}
      
-      <ProblemCircle  problemsSolved={easySolved} totalProblems={totalEasyProblems}  />
+      <ProblemCircle  problemsSolved={easySolved} totalProblems={totalEasyProblems}  successRate={successRates["Easy"]} />
 
       <p>Medium: <span id="medium-solved">{responseData.mediumSolved} / {totalMediumProblems} </span></p>
-      <ProblemCircle problemsSolved={mediumSolved} totalProblems={totalEasyProblems} />
+      <ProblemCircle problemsSolved={mediumSolved} totalProblems={totalEasyProblems} successRate={successRates["Medium"]} />
 
       <p>Hard: <span id="hard-solved">{responseData.hardSolved}  / {totalHardProblems}</span></p>
-      <ProblemCircle problemsSolved={hardSolved} totalProblems={totalHardProblems} />
+      <ProblemCircle problemsSolved={hardSolved} totalProblems={totalHardProblems}  successRate={successRates["Hard"]}  />
+      <p>Total: <span id="medium-solved">{totalsolved}  / {totalQuestions}</span></p>
+      <ProblemCircle problemsSolved={totalsolved} totalProblems={totalQuestions} successRate={successRates["All"]} />
       </div>
+      
+      
 
       <h2 > Submission Calendar</h2>
       <div className="calendar">
