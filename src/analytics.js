@@ -16,7 +16,7 @@ export const getAnalytics = (v1, v2,user1,user2) => {
   const consistencyBar = getProgressBar(consistencyPercentage1, consistencyPercentage2);
   const monthlySubmissions1 = generateMonthlyData(v1)
   const monthlySubmissions2=generateMonthlyData(v2);
-  console.log(monthlySubmissions1)
+  // console.log(monthlySubmissions1)
   console.log(monthlySubmissions2)
 
   return (
