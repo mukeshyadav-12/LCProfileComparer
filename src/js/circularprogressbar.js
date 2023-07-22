@@ -11,7 +11,7 @@ const ProblemCircle = ({ problemsSolved, totalProblems,successRate }) => {
   };
   const renderCenterText = () => {
     if (showSuccessRate) {
-      return `${successRate}%  acceptance`;
+      return `${successRate}%  `;
     } else {
       return `${problemsSolved} / ${totalProblems}`;
     }

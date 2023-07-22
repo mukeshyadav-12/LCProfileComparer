@@ -1,8 +1,7 @@
-
-import './App.css';
-import './input.css'
-import {handleResponse} from './responsehandler'
-import { getAnalytics } from './analytics';
+import './css/App.css'
+import './css/input.css'
+import {handleResponse} from './js/responsehandler'
+import { getAnalytics } from './js/analytics';
 
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
