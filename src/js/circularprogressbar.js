@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const ProblemCircle = ({ problemsSolved, totalProblems,successRate }) => {
+const ProblemCircle = ({ problemsSolved, totalProblems }) => {
   const [showSuccessRate, setShowSuccessRate] = useState(false);
   const percentage = Math.round((problemsSolved / totalProblems) * 100);
 
@@ -11,7 +11,7 @@ const ProblemCircle = ({ problemsSolved, totalProblems,successRate }) => {
   };
   const renderCenterText = () => {
     if (showSuccessRate) {
-      return `${successRate}%  `;
+      return `${percentage}%  `;
     } else {
       return `${problemsSolved} / ${totalProblems}`;
     }
