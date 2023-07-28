@@ -69,16 +69,26 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Leetcode Profile Comparer</h1>
-      <input id="user1" placeholder="Enter first username" value={user1} onChange={handleUser1Change} />
-      <input id="user2" placeholder="Enter second username" value={user2} onChange={handleUser2Change} />
+    <div className='main'>
+    <div className='container-fluid text-center gradient-background '>
+        <div className='col-xs-12 col-md-12 col-lg-12 mb-5 mt-5 '>
+      <h1 >Welcome to LCcompare</h1>
+      <small >-A platform to compare Leetcode profiles.</small>
+      </div>
+      <div className='col text-center'>
+  <input id="user1" className="mb-2" placeholder="Enter first username" value={user1} onChange={handleUser1Change} />
+  <input id="user2" className="mt-2" placeholder="Enter second username" value={user2} onChange={handleUser2Change} />
+</div>
+
+      <div className='col mt-2'>
       <button onClick={fetchData}>Submit</button>
+      </div>
       <br />
 
       {user1NotFound && <span className="userNotFound">{user1} is not present</span>}
       <br />
       {user2NotFound && <span className="userNotFound">{user2} is not present</span>}
+      </div>
       <div className="container">
         <div className="left">{response1Result}</div>
         <div className="separator"></div>
@@ -95,7 +105,7 @@ function App() {
       )}
 
       {analytics}
-    </>
+    </div>
   );
 }
 

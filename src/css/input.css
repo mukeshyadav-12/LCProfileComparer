@@ -1,3 +1,14 @@
 .userNotFound{
     color: red;
 }
+/* MyComponent.css */
+
+.gradient-background {
+    /* background-image: linear-gradient(to bottom, rgb(0, 255, 238), blue); */
+    
+  }
+  .main{
+    padding-top: 20px;
+    height: auto;
+    background-image: linear-gradient(to bottom,rgb(0,255,238),rgb(0, 187, 255));
+  } 
