@@ -69,7 +69,7 @@ function App() {
   };
 
   return (
-    <div className='main'>
+    <div className='container main'>
     <div className='container-fluid text-center gradient-background '>
         <div className='col-xs-12 col-md-12 col-lg-12 mb-5 mt-5 '>
       <h1 >Welcome to LCcompare</h1>
