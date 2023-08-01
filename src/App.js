@@ -81,7 +81,7 @@ function App() {
     <div className='container-fluid text-center gradient-background'>
       <div className='row mb-5 mt-5'>
         <div className='col-12'>
-          <h1>Welcome to LCcompare</h1>
+          <h1>Welcome to ProfileBattle</h1>
           <small>-A platform to compare Leetcode profiles.</small>
         </div>
       </div>
