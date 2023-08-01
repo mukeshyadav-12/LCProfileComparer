@@ -15,6 +15,8 @@ function App() {
   const [user2, setUser2] = useState('');
   const [user1NotFound, setUser1NotFound] = useState(false);
   const [user2NotFound, setUser2NotFound] = useState(false);
+  const [incorrectDetails, setIncorrectDetails] = useState(false);
+
   const [response1Result, setResponse1Result] = useState(null);
   const [response2Result, setResponse2Result] = useState(null);
   const [analytics, setAnalytics] = useState(null);
@@ -35,9 +37,15 @@ function App() {
     setUser2NotFound(false);
     setResponse1Result(null);
     setResponse2Result(null);
+    setIncorrectDetails(false)
     setAnalytics(null);
 
     try {
+
+      if(!user1 || !user2){
+        setIncorrectDetails(true)
+        return;
+      }
       const response1 = await axios.get(`https://faisal-leetcode-api.cyclic.app/${user1}`);
       if ('errors' in response1.data) {
         setUser1NotFound(true);
@@ -69,26 +77,46 @@ function App() {
   };
 
   return (
-    <div className='container main'>
-    <div className='container-fluid text-center gradient-background '>
-        <div className='col-xs-12 col-md-12 col-lg-12 mb-5 mt-5 '>
-      <h1 >Welcome to LCcompare</h1>
-      <small >-A platform to compare Leetcode profiles.</small>
+    <div className='main'>
+    <div className='container-fluid text-center gradient-background'>
+      <div className='row mb-5 mt-5'>
+        <div className='col-12'>
+          <h1>Welcome to LCcompare</h1>
+          <small>-A platform to compare Leetcode profiles.</small>
+        </div>
       </div>
-      <div className='col text-center'>
-  <input id="user1" className="mb-2" placeholder="Enter first username" value={user1} onChange={handleUser1Change} />
-  <input id="user2" className="mt-2" placeholder="Enter second username" value={user2} onChange={handleUser2Change} />
-</div>
-
-      <div className='col mt-2'>
-      <button onClick={fetchData}>Submit</button>
+      <div className='row justify-content-center'>
+        <div className='col-md-6 col-lg-4'>
+          <input
+            id="user1"
+            className="form-control mb-2"
+            placeholder="Enter first username"
+            value={user1}
+            onChange={handleUser1Change}
+          />
+          <input
+            id="user2"
+            className="form-control mt-2"
+            placeholder="Enter second username"
+            value={user2}
+            onChange={handleUser2Change}
+          />
+        </div>
       </div>
-      <br />
-
-      {user1NotFound && <span className="userNotFound">{user1} is not present</span>}
-      <br />
-      {user2NotFound && <span className="userNotFound">{user2} is not present</span>}
+      <div className='row mt-2'>
+        <div className='col'>
+          <button className="btn btn-primary" onClick={fetchData}>Submit</button>
+        </div>
       </div>
+      <div className='row'>
+        <div className='col'>
+          {incorrectDetails && <span className='userNotFound'>Username can't be empty</span>}
+          {user1NotFound && <span className="userNotFound">{user1} is not present</span>}
+          <br />
+          {user2NotFound && <span className="userNotFound">{user2} is not present</span>}
+        </div>
+      </div>
+    </div>
       <div className="container">
         <div className="left">{response1Result}</div>
         <div className="separator"></div>

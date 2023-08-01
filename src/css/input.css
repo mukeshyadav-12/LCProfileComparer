@@ -7,8 +7,11 @@
     /* background-image: linear-gradient(to bottom, rgb(0, 255, 238), blue); */
     
   }
-  .main{
+  .main {
     padding-top: 20px;
-    height: auto;
-    background-image: linear-gradient(to bottom,rgb(0,255,238),rgb(0, 187, 255));
-  } 
+    min-height: 100vh; /* Set the minimum height to 100vh */
+    height: auto; /* Let the height grow based on content */
+    background-image: linear-gradient(to bottom, rgb(226, 242, 241), rgb(232, 238, 238));
+  }
+  
+  

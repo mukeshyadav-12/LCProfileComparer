@@ -45,26 +45,36 @@ export const handleResponse = (responseData, username) => {
   return {
     responseComponent : (
     <div className='text-center'>
-      <div className="username">{username}</div>
+      <h1 className="username">{username}</h1>
       <div>
-      <p>Easy: <span id="easy-solved">{easySolved} / {totalEasyProblems}</span></p>
+        <div className='col mt-5 mb-5'>
+      <h4>Easy
+         {/* <span id="easy-solved">{easySolved} / {totalEasyProblems}</span> */}
+         </h4>
       {/* <img onMouseEnter={toggleSuccessRate}
       src={`https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png`}/> */}
-     
+      
       <ProblemCircle  problemsSolved={easySolved} totalProblems={totalEasyProblems}  successRate={successRates["Easy"]} />
 
-      <p>Medium: <span id="medium-solved">{responseData.mediumSolved} / {totalMediumProblems} </span></p>
-      <ProblemCircle problemsSolved={mediumSolved} totalProblems={totalEasyProblems} successRate={successRates["Medium"]} />
+      <h4>Medium
+        {/* <span id="medium-solved">{responseData.mediumSolved} / {totalMediumProblems} </span> */}
+        </h4>
+      <ProblemCircle problemsSolved={mediumSolved} totalProblems={totalMediumProblems} successRate={successRates["Medium"]} />
 
-      <p>Hard: <span id="hard-solved">{responseData.hardSolved}  / {totalHardProblems}</span></p>
+      <h4>Hard
+         {/* <span id="hard-solved">{responseData.hardSolved}  / {totalHardProblems}</span> */}
+         </h4>
       <ProblemCircle problemsSolved={hardSolved} totalProblems={totalHardProblems}  successRate={successRates["Hard"]}  />
-      <p>Total: <span id="medium-solved">{totalsolved}  / {totalQuestions}</span></p>
+      <h4>Total
+        {/* <span id="medium-solved">{totalsolved}  / {totalQuestions}</span> */}
+        </h4>
       <ProblemCircle problemsSolved={totalsolved} totalProblems={totalQuestions} successRate={successRates["All"]} />
+      </div>
       </div>
       
       
-
-      <h2 > Submission Calendar</h2>
+      <div className='mb-4 mt-4'>
+      <h2 className='mt-4 mb-4' > Submission Calendar</h2>
       <div className="calendar">
         <CalendarHeatmap
           startDate={new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)} // Set the start date to one year ago
@@ -85,7 +95,7 @@ export const handleResponse = (responseData, username) => {
           
           
         />
-      </div>
+      </div></div>
     </div> ),
     submissionVector : submissionVector,
 };

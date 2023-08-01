@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import '../css/analytics.css'
 
 const ProblemCircle = ({ problemsSolved, totalProblems }) => {
   const [showSuccessRate, setShowSuccessRate] = useState(false);
-  const percentage = Math.round((problemsSolved / totalProblems) * 100);
+  const percentage = ((problemsSolved / totalProblems) * 100).toFixed(1);
 
   const toggleSuccessRate = () => {
     setShowSuccessRate(!showSuccessRate);
@@ -19,7 +20,7 @@ const ProblemCircle = ({ problemsSolved, totalProblems }) => {
   
 
   return (
-    <div style={{ width: '200px' }}
+    <div className='circularBar' style={{ width: '200px' }}
     onMouseEnter={toggleSuccessRate}
         onMouseLeave={toggleSuccessRate}>
       <CircularProgressbar

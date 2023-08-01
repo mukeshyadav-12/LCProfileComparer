@@ -35,11 +35,13 @@ export const getProgressBar = (x, y) => {
       };
     
       return (
+        <div className="container mt-5 mb-5">
         <div style={containerStyles}>
           <div  style={progressBarContainerStyles}>
             <div className="d-flex align-items-center justify-content-center" style={leftProgressBarStyles}>{x}%</div>
             <div className="d-flex align-items-center justify-content-center" style={rightProgressBarStyles}>{y}%</div>
           </div>
+        </div>
         </div>
       );
   

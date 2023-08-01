@@ -22,18 +22,18 @@ export const getAnalytics = (v1, v2,user1,user2) => {
   return (
     <div>
       <div>
-        <h3 className="text-center">Consistency</h3>
+        <h2 className="text-center mt-5 mb-3">Consistency</h2>
         {consistencyBar}
       </div>
-      <h1 className="text-center" >Submissions Graph</h1><br></br>
+      <h2 className="text-center mt-5 mb-3" >Submissions Graph</h2><br></br>
 
       <div className="container">
         <PrefixSumGraph array1={v1} array2={v2} user1={user1} user2={user2} />
         
       </div>
-      <h1 className="text-center">Comparison Bar Graph</h1>
+      <h2 className="text-center mt-5 mb-3">Comparison Bar Graph</h2>
 
-      <div className="container">
+      <div className="container ">
         <BarGraph map1={monthlySubmissions1} map2={monthlySubmissions2} user1={user1} user2={user2} />
       </div>
    
