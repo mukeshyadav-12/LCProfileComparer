@@ -46,13 +46,13 @@ function App() {
         setIncorrectDetails(true)
         return;
       }
-      const response1 = await axios.get(`https://faisal-leetcode-api.cyclic.app/${user1}`);
+      const response1 = await axios.get(`https://leetcode-stats-api.herokuapp.com/${user1}`);
       if ('errors' in response1.data) {
         setUser1NotFound(true);
         console.log(user1)
       }
 
-      const response2 = await axios.get(`https://faisal-leetcode-api.cyclic.app/${user2}`);
+      const response2 = await axios.get(`https://leetcode-stats-api.herokuapp.com/${user2}`);
       if ('errors' in response2.data) {
         setUser2NotFound(true);
       }

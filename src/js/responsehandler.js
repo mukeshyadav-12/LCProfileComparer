@@ -19,10 +19,10 @@ export const handleResponse = (responseData, username) => {
 
   const successRates = {};
 
-  responseData.totalSubmissions.forEach(submission => {
-  const successRate = (submission.count / submission.submissions) * 100;
-  successRates[submission.difficulty] = successRate.toFixed(1);
-});
+//   responseData.totalSubmissions.forEach(submission => {
+//   const successRate = (submission.count / submission.submissions) * 100;
+//   successRates[submission.difficulty] = successRate.toFixed(1);
+// });
 
   Object.entries(responseData.submissionCalendar).forEach(([timestamp, count]) => {
     const date = new Date(parseInt(timestamp) * 1000);
